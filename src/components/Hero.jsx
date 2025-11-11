@@ -3,14 +3,23 @@ import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[88vh] w-full overflow-hidden">
-      <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/ShS6h2HOKd20s1py/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+    <section className="relative min-h-screen w-full isolate overflow-visible">
+      {/* Fixed background Spline so it never scrolls/shrinks */}
+      <div className="pointer-events-none fixed inset-0 -z-10">
+        <Spline
+          scene="https://prod.spline.design/ShS6h2HOKd20s1py/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/30 to-white/80 dark:from-slate-900/40 dark:via-slate-900/20 dark:to-slate-900/60 pointer-events-none" />
+      {/* Fixed scrim to keep text legible and blend to white at bottom */}
+      <div className="fixed inset-0 -z-10 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/20 to-white/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_10%,rgba(255,255,255,0.6)_0%,rgba(255,255,255,0)_60%)]" />
+      </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-36 pb-20">
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
