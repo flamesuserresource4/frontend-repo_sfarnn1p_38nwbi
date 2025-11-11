@@ -1,33 +1,37 @@
 import { motion } from 'framer-motion';
-import { Code, Palette, Snowflake, Sparkles } from 'lucide-react';
+import { Code, Palette, Rocket, Sparkles } from 'lucide-react';
 
 const items = [
   {
     icon: Sparkles,
-    title: 'Product Design',
-    desc: 'Systems, flows, and interfaces with thoughtful motion.'
+    title: 'Design Systems',
+    desc: 'Cohesive libraries and tokens with real-world pragmatism.'
   },
   {
     icon: Code,
     title: 'Frontend Engineering',
-    desc: 'Robust React apps, accessible and fast.'
+    desc: 'Accessible, performant React apps with tasteful motion.'
   },
   {
     icon: Palette,
-    title: 'Visual Direction',
-    desc: 'Warm tones with fresh winter accents and clarity.'
+    title: 'Brand & Visual',
+    desc: 'Warm palettes, depth, and clarity that carry across surfaces.'
   },
   {
-    icon: Snowflake,
-    title: 'Micro-interactions',
-    desc: 'Tasteful animations for delight without distraction.'
+    icon: Rocket,
+    title: 'Launch & Iterate',
+    desc: 'Fast cycles, crisp handoff, and long-term care.'
   }
 ];
 
 export default function SectionCards() {
   return (
-    <section id="work" className="relative py-20 sm:py-28">
+    <section id="projects" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">What I do</h2>
+          <p className="mt-2 text-slate-600 max-w-2xl">Partnering end‑to‑end—from direction and prototyping to refined, production‑ready interfaces.</p>
+        </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((item, i) => {
             const Icon = item.icon;
@@ -38,14 +42,14 @@ export default function SectionCards() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group rounded-3xl border border-white/40 bg-white/50 dark:bg-white/10 backdrop-blur-xl p-6 shadow-[0_8px_30px_rgba(31,38,135,0.08)] hover:shadow-[0_12px_40px_rgba(31,38,135,0.15)] transition"
+                className="group rounded-3xl border border-white/50 bg-white/60 backdrop-blur-xl p-6 shadow-[0_8px_30px_rgba(31,38,135,0.08)] hover:shadow-[0_12px_40px_rgba(31,38,135,0.15)] transition"
                 style={{ WebkitBackdropFilter: 'blur(12px)' }}
               >
-                <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-amber-300 via-amber-400 to-rose-400 grid place-items-center shadow-inner mb-4">
+                <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-amber-300 via-rose-400 to-amber-500 grid place-items-center shadow-inner mb-4">
                   <Icon className="h-5 w-5 text-white" />
                 </div>
-                <h3 className="font-semibold text-lg text-slate-900/90 dark:text-white/90">{item.title}</h3>
-                <p className="mt-1.5 text-slate-700/80 dark:text-white/70">{item.desc}</p>
+                <h3 className="font-semibold text-lg text-slate-900">{item.title}</h3>
+                <p className="mt-1.5 text-slate-700">{item.desc}</p>
               </motion.div>
             );
           })}
